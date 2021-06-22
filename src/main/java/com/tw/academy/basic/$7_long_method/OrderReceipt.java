@@ -8,6 +8,7 @@ package com.tw.academy.basic.$7_long_method;
  * @since   2018-1-1
  */
 public class OrderReceipt {
+    public static final String LINE_ITEM_SEPARATOR = "\t";
     public static final String RECEIPT_HEADER = "======Printing Orders======\n";
     public static final String RECEIPT_SALES_TAX = "Sales Tax";
     public static final String RECEIPT_TOTAL_AMOUNT = "Total Amount";
@@ -30,8 +31,6 @@ public class OrderReceipt {
         buildHeader(output);
         buildCustomerInfo(output);
 
-        double totSalesTx = 0d;
-        double tot = 0d;
         for (LineItem lineItem : order.getLineItems()) {
             output.append(lineItem.getDescription());
             output.append('\t');
@@ -41,19 +40,20 @@ public class OrderReceipt {
             output.append('\t');
             output.append(lineItem.totalAmount());
             output.append('\n');
-
-            double salesTax = lineItem.totalAmount() * TAX_RATE;
-            totSalesTx += salesTax;
-
-            tot += lineItem.totalAmount() + salesTax;
         }
 
 
-        output.append(RECEIPT_SALES_TAX).append('\t').append(totSalesTx);
-
-
-        output.append(RECEIPT_TOTAL_AMOUNT).append('\t').append(tot);
+        buildTotalSalesTax(output, order.calculateTotalSalesTax());
+        buildTotalAmount(output, order.calculateTotalAmount());
         return output.toString();
+    }
+
+    private StringBuilder buildTotalAmount(StringBuilder output, double totalAmount) {
+        return output.append(RECEIPT_TOTAL_AMOUNT).append(LINE_ITEM_SEPARATOR).append(totalAmount);
+    }
+
+    private StringBuilder buildTotalSalesTax(StringBuilder output, double totalSalesTax) {
+        return output.append(RECEIPT_SALES_TAX).append(LINE_ITEM_SEPARATOR).append(totalSalesTax);
     }
 
     private void buildCustomerInfo(StringBuilder output) {
