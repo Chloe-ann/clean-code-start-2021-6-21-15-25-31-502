@@ -29,6 +29,10 @@ public class Order {
         return totalSalesTax;
     }
 
+    public String getCustomerInfo() {
+        return customerName + address;
+    }
+
     public String getCustomerName() {
         return customerName;
     }
