@@ -21,6 +21,14 @@ public class Order {
         return totalAmount;
     }
 
+    public double calculateTotalSalesTax() {
+        double totalSalesTax = 0d;
+        for (LineItem lineItem : lineItems) {
+            totalSalesTax += lineItem.calculateTaxAmount();
+        }
+        return totalSalesTax;
+    }
+
     public String getCustomerName() {
         return customerName;
     }
