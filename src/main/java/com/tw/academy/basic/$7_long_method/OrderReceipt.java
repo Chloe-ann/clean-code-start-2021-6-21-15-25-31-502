@@ -30,22 +30,14 @@ public class OrderReceipt {
 
         buildHeader(output);
         buildCustomerInfo(output);
-
-        for (LineItem lineItem : order.getLineItems()) {
-            output.append(lineItem.getDescription());
-            output.append('\t');
-            output.append(lineItem.getPrice());
-            output.append('\t');
-            output.append(lineItem.getQuantity());
-            output.append('\t');
-            output.append(lineItem.totalAmount());
-            output.append('\n');
-        }
-
-
+        buildItemsInfo(output);
         buildTotalSalesTax(output, order.calculateTotalSalesTax());
         buildTotalAmount(output, order.calculateTotalAmount());
         return output.toString();
+    }
+
+    private void buildItemsInfo(StringBuilder receipt) {
+        receipt.append(order.getOrderItemsInfo());
     }
 
     private StringBuilder buildTotalAmount(StringBuilder output, double totalAmount) {
