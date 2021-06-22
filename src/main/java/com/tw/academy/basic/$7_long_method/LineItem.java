@@ -1,6 +1,8 @@
 package com.tw.academy.basic.$7_long_method;
 
 public class LineItem {
+	public static final String LINE_ITEM_SEPARATOR = "\t";
+	public static final String LINE_SEPARATOR = "\n";
 	private String description;
 	private double price;
 	private int quantity;
