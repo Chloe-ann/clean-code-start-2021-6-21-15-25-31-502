@@ -29,4 +29,11 @@ public class LineItem {
     double totalAmount() {
         return price * quantity;
     }
+
+	@Override
+	public String toString() {
+		return description + LINE_ITEM_SEPARATOR + price + LINE_ITEM_SEPARATOR + quantity + LINE_ITEM_SEPARATOR + totalAmount() + LINE_SEPARATOR;
+	}
+
+
 }
