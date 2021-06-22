@@ -44,12 +44,4 @@ public class Order {
     public String getCustomerName() {
         return customerName;
     }
-
-    public String getCustomerAddress() {
-        return address;
-    }
-
-    public List<LineItem> getLineItems() {
-        return lineItems;
-    }
 }
