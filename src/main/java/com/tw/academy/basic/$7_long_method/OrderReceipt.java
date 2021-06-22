@@ -27,7 +27,7 @@ public class OrderReceipt {
     public String printReceipt() {
         StringBuilder output = new StringBuilder();
 
-        output.append(RECEIPT_HEADER);
+        buildHeader(output);
 
 
         output.append(order.getCustomerName());
@@ -57,5 +57,9 @@ public class OrderReceipt {
 
         output.append(RECEIPT_TOTAL_AMOUNT).append('\t').append(tot);
         return output.toString();
+    }
+
+    private StringBuilder buildHeader(StringBuilder output) {
+        return output.append(RECEIPT_HEADER);
     }
 }
