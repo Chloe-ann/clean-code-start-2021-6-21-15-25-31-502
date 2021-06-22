@@ -28,10 +28,7 @@ public class OrderReceipt {
         StringBuilder output = new StringBuilder();
 
         buildHeader(output);
-
-
-        output.append(order.getCustomerName());
-        output.append(order.getCustomerAddress());
+        buildCustomerInfo(output);
 
         double totSalesTx = 0d;
         double tot = 0d;
@@ -57,6 +54,10 @@ public class OrderReceipt {
 
         output.append(RECEIPT_TOTAL_AMOUNT).append('\t').append(tot);
         return output.toString();
+    }
+
+    private void buildCustomerInfo(StringBuilder output) {
+        output.append(order.getCustomerInfo());
     }
 
     private StringBuilder buildHeader(StringBuilder output) {
