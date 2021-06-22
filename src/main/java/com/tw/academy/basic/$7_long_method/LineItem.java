@@ -35,5 +35,9 @@ public class LineItem {
 		return description + LINE_ITEM_SEPARATOR + price + LINE_ITEM_SEPARATOR + quantity + LINE_ITEM_SEPARATOR + totalAmount() + LINE_SEPARATOR;
 	}
 
+	public double calculateTaxAmount() {
+		return totalAmount() * OrderReceipt.TAX_RATE;
+	}
+
 
 }
