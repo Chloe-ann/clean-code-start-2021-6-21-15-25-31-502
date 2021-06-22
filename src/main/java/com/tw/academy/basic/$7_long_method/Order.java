@@ -33,6 +33,14 @@ public class Order {
         return customerName + address;
     }
 
+    public String getOrderItemsInfo() {
+        String orderItemsInfo = "";
+        for (LineItem lineItem : lineItems) {
+            orderItemsInfo += lineItem.toString();
+        }
+        return orderItemsInfo;
+    }
+
     public String getCustomerName() {
         return customerName;
     }
