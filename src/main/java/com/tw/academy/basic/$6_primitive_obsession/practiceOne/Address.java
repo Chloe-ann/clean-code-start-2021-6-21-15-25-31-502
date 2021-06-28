@@ -10,4 +10,8 @@ public class Address {
     public String getAddress() {
         return address;
     }
+
+    public String getCity() {
+        return address.substring(address.indexOf("省") + 1, address.indexOf("市"));
+    }
 }
