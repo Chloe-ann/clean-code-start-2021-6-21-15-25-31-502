@@ -24,10 +24,6 @@ public class DeliveryManager {
     }
 
     private boolean isSameProvince() {
-        return getProvince(this.to.getAddress()).equals(getProvince(this.from.getAddress()));
-    }
-
-    private String getProvince(String address) {
-        return address.substring(0, address.indexOf("省"));
+        return to.getProvince().equals(from.getProvince());
     }
 }
