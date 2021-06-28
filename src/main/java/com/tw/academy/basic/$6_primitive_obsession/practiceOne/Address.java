@@ -7,16 +7,15 @@ public class Address {
         this.address = address;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
     public String getCity() {
-        return address.substring(address.indexOf("省") + 1, address.indexOf("市"));
+        return getAddress().substring(getAddress().indexOf("省") + 1, getAddress().indexOf("市"));
     }
-
 
     public String getProvince() {
-        return address.substring(0, address.indexOf("省"));
+        return getAddress().substring(0, getAddress().indexOf("省"));
+    }
+
+    public String getAddress() {
+        return address;
     }
 }
